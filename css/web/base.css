@@ -1,0 +1,436 @@
+/*
+    Created on : Apr 8, 2017, 10:56:14 PM
+    Author     : nyeinchanaung
+*/
+body{
+    text-align: center;
+    margin: 0px;
+}
+#id-p-desc{
+    line-height: 2;
+    font-style: italic;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 1em;
+    padding: 0px 50px 0px 50px;
+}
+#id-h2-title{
+    color: #FFFFFF;
+    background: #1FDA9A;
+    font-weight: bolder;
+    font-size: 3em;
+}
+#id-div-maincontainer{
+    background: lightgray;
+    text-align: center;
+}
+.cl-text-medium{
+    height: 2em;
+    font-size: x-large;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline;
+}
+.cl-btn-medium{
+    height: 2.5em;
+    font-size: 1.5em;
+    width: 4em;
+    border-radius: 0px;
+    text-align: center;
+    border: 0px;
+    background: #1FDA9A;
+    display: inline;
+}
+.cl-common-hover:hover{
+    color: white;
+    cursor: pointer;
+}
+.cl-error-small{
+    color: red;
+    font-size: smaller;
+    font-weight: bolder;
+}
+
+/* Password forget */
+#id-span-passforget{
+    color: blue;
+    text-decoration: underline;
+}
+
+/* Modal */
+#id-modal-full{
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0px;
+    text-align: center;
+    bottom: 5px;
+    width: 100%;
+    height: 100%;
+    background:  rgba(0,0,0,1);
+    z-index: 99999;
+}
+
+/* Password forget div*/
+#id-div-passforget{
+    margin-top: 50px;
+    text-align: left;
+    padding: 30px;
+    display: inline-block;
+    background: lightgrey;
+    box-shadow: 5px 4px;
+    border-radius: 10px;
+}
+
+#id-span-passforgettitle{
+    display: inline-block;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Confirmation */
+.cl-div-confirmation{
+    text-align: left;
+    display: inline-block;
+    border-left: 5px solid lightgreen;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+    background: #C0C0C0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 6px #FFFFFF;
+}
+
+#id-link-rscode{
+    text-decoration: none;
+    font-style: italic;
+}
+
+#id-div-navcontainer{
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+}
+
+#id-div-navcontainer p{
+    background: lightgreen;
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 20px;
+    border-bottom: 3px solid silver;
+}
+
+#id-div-navcontainer p:hover{
+    cursor: pointer;
+}
+
+#id-ul-navlinkcontainer{
+    display: none;
+    color: #FFFFFF;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#id-ul-navlinkcontainer li{
+    background: lightgreen;
+    font-size: xx-large;
+    padding: 10px;
+    border-bottom: 3px solid silver;
+    border-radius: 20px;
+}
+
+#id-ul-navlinkcontainer li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#id-ul-navlinkcontainer li:hover{
+    cursor: pointer;
+    font-style: italic;
+}
+
+/* Info view tags */
+
+#id-ul-infoview{
+    display: inline-block;
+    padding: 0px;
+}
+#id-ul-infoview li{
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px;
+    box-shadow: 2px 4px 10px 1px;
+    font-size: x-large;
+
+}
+#id-ul-infoview li:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 0px 1px;
+}
+
+/* Discussion notification list ul-li-p */
+#id-ul-notilist{
+    width: 30%;
+    padding: 0px;
+    margin-left: 0px;
+    background: lightgray;
+    box-shadow: 2px 4px 10px 1px;
+}
+
+#id-ul-notilist li{
+    list-style: none;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+#id-ul-notilist li:hover{
+    cursor: pointer;
+    box-shadow: 2px 4px 10px 1px;
+}
+
+#id-span-noticount{
+    font-weight: bolder;
+    font-size: medium;
+    color: #FF0000;
+}
+
+.cl-p-noti{
+    text-align: left;
+    padding-left: 10px;
+    margin: 0px;
+}
+
+.cl-p-notititle{
+    font-weight: bolder;
+    font-size: medium;
+}
+
+/* Discussion change notification bell */
+#id-span-disschangebell{
+    font-size: xx-large;
+    margin-left: 20px;
+    color: #FFFFFF;
+}
+#id-span-disschangebell:hover{
+    cursor: pointer;
+}
+
+/* Discussion change noti list */
+#id-ul-dissnoti{
+    position: absolute;
+    z-index: 100;
+}
+
+#id-ul-dissnoti li{
+
+}
+/* Search Bar */
+#id-text-searchkey{
+
+}
+
+/* cpcontainer - create and each post container */
+.cl-div-postcontainer{
+    display: inline-block;
+    background: #C0C0C0;
+    border-radius: 10px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 6px 5px 10px;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#id-textarea-postcontent{
+    width: 90%;
+    border-radius: 10px;
+    resize: vertical;
+    margin-top: 15px;
+    font-size: x-large;
+}
+
+.cl-select-large{
+    background-color:#27AE60;
+    color:white;
+    padding:12px;
+    border-radius:3px;
+    font-size:16px;
+    vertical-align: middle;
+    margin-bottom: 1px;
+}
+
+.cl-p-createposterr{
+    display: none;
+    font-weight: bolder;
+    display: none;
+    color: #FF0000;
+    font-size: medium;
+}
+
+.cl-p-epcontent{
+    margin-right: 3px;
+    background: #FFFFFF;
+    padding: 5px 0px 5px 5px;
+    border-left: 3px solid green;
+}
+
+.cl-p-epcontent a{
+    text-decoration: none;
+    padding: 0px;
+}
+
+.cl-p-eptitle{
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.cl-btn-small{
+    background-color: #1FDA9A;
+    font-size: x-large;
+    font-weight: bolder;
+    border-radius: 0px;
+    text-align: center;
+    padding: 5px;
+    border: 0px;
+}
+.cl-btn-epedtbtn{
+    color: #0000FF;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+.cl-btn-epdelbtn{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: #FF0000;
+    float: right;
+}
+
+.cl-span-posttype{
+    display: inline-block;
+    margin-top: 10px;
+    font-size: smaller;
+    font-style: italic;
+    color: #0000FF;
+}
+
+/* post update time span */
+.cl-span-posttime{
+    font-size: xx-small;
+    display: none;
+}
+/* posted user */
+.cl-span-postedby{
+    font-size: xx-small;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+/* show comment span */
+.cl-span-showdiss{
+    display: inline-block;
+    font-size: x-small;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.cl-span-showdiss:hover{
+    cursor: pointer;
+}
+
+/* Pagination links */
+.cl-p-paginationlinks{
+    margin: 0px;
+}
+
+.cl-p-paginationlinks strong,a{
+    text-decoration: underline;
+    font-size: larger;
+    margin: 0px;
+    padding: 10px;
+}
+
+/* div for discussions */
+.cl-div-disscontainer{
+    margin: 5px 0px 10px 0px;
+}
+
+/*discussion textarea*/
+.cl-textarea-discussion{
+    resize: none;
+    width: 80%;
+}
+/* discussion crud button */
+.cl-span-changediss{
+    border: none;
+    color: #0000FF;
+    text-decoration: underline;
+    font-size: small;
+    background-color: transparent;
+    font-family: sans-serif;
+}
+
+.cl-btn-dissubmit:hover{
+    cursor: pointer;
+}
+
+/* Discussions */
+.cl-p-discussion{
+    background: #FFFFFF;
+    font-size: smaller;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    height: 100px;
+    overflow: auto;
+    padding-left: 5px;
+    width: 80%;
+}
+
+.cl-span-dissubmit{
+    margin-left: 5px;
+}
+
+.cl-p-discussion a{
+    text-decoration: none;
+    font-size: smaller;
+    padding: 0px;
+}
+
+.cl-span-changediss:hover{
+    cursor: pointer;
+}
+
+/* discussion edit */
+.cl-span-editdiss{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #0000FF;
+}
+/* discussion delete */
+.cl-span-deldiss{
+    color: #FF0000;
+}
+
+/* discussion info discussed user and time */
+.cl-span-dissinfo{
+    font-size: x-small;
+    margin-left: 5px;
+}
+
+/* Genreal page */
+/* account form */
+#id-form-genralacc{
+    display: inline-block;
+    border: 2px solid #FFFFFF;
+    box-shadow: 6px 5px 10px;
+    border-radius: 10px;
+}
+
+#id-table-general{
+    font-size: large;
+}

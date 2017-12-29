@@ -1,0 +1,10 @@
+#RewriteEngine On
+<IfModule mod_suphp.c>
+ #suPHP_ConfigPath /home2/nyeinchan
+ <Files php.ini>
+   order allow,deny
+   deny from all
+ </Files>
+</IfModule>
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://www.theffh.com/$1 [R=301,L]

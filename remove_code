@@ -1,0 +1,31 @@
+
+/**
+ * change current link to green color and black text
+ * in navi ul-li
+ *
+ * @returns {void}
+ */
+function navChange() {
+//    var ul_elements = $("#id-ul-navlinkcontainer").children("li");
+//    var ul_length = ul_elements.length;
+//    var current_url = window.location.href.toString();
+//    var splited_current_url = current_url.split("?");
+//    console.log(splited_current_url);
+//    if (splited_current_url.length === 2) {
+//        current_url = splited_current_url[0];
+//    }
+//    console.log(current_url);
+//    if (current_url.charAt(current_url.length - 1) !== "/") {
+//        current_url += "/";
+//    }
+//    for (var i = 0; i < ul_length; i++) {
+//        var li = ul_elements[i];
+//        var a_tag = $(li).find("a");
+//        var url = a_tag.attr("href");
+//        if (url === current_url) {
+//            a_tag.css("color", "#000000");
+//            $(li).css("background", "green");
+//            break;
+//        }
+//    }
+}
