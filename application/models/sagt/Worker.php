@@ -31,8 +31,8 @@ class Worker extends MY_Model {
 		if (isset($data['photo_data'])) {
 			$this->handlePhotoData($data['photo_data'], $id);
 		} else {
-			$this->additional_data[Constant::TABLE_WORKER_COLUMN_PHOTO_PATH] = Constant::WORKER_DEFAULT_FULL_IMG_PATH;
-			$this->additional_data[Constant::TABLE_WORKER_COLUMN_THUMBNAIL] = Constant::WORKER_DEFAULT_THUMNAIL_PATH;
+			$this->additional_data[Constant::TABLE_WORKER_COLUMN_PHOTO_PATH] = NULL;
+			$this->additional_data[Constant::TABLE_WORKER_COLUMN_THUMBNAIL] = NULL;
 		}
 		$table_data = array_merge($data, $this->additional_data);
 		$this->map_field(Constant::TABLE_WORKER, $table_data);
@@ -146,9 +146,12 @@ class Worker extends MY_Model {
 				if ($value->font == 'zawgyi') {
 					$value->name = Rabbit::uni2zg($value->name);
 				}
-				$value->photo_path = base_url() . str_replace('\\', '/', $value->photo_path);
-				$value->thumbnail_path = base_url() . str_replace('\\', '/', $value->thumbnail_path);
-				log_message('info', $value->thumbnail_path);
+				if(!is_null($value->photo_path)){
+					$value->photo_path = base_url() . str_replace('\\', '/', $value->photo_path);
+				}
+				if(!is_null($value->thumbnail_path)){
+					$value->thumbnail_path = base_url() . str_replace('\\', '/', $value->thumbnail_path);
+				}
 			}
 			return $result;
 		} else {

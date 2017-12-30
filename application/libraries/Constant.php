@@ -211,10 +211,10 @@ class Constant {
 	 */
 	public static function get_db_config($name) {
 		$config['sagt'] = [
-			'dsn' => 'mysql:host=localhost;port=3306;dbname=' . $name,
-			'hostname' => 'localhost',
-			'username' => 'root',
-			'password' => '',
+			'dsn' => 'mysql:host=192.168.0.16;port=3306;dbname=' . $name,
+			'hostname' => '192.168.0.16',
+			'username' => 'mac',
+			'password' => 'root',
 			'database' => '',
 			'dbdriver' => 'pdo',
 			'dbprefix' => '',
