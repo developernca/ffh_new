@@ -64,7 +64,6 @@ class Sagt extends MY_Controller {
 	 * Find worker.
 	 */
 	public function find_worker() {
-		log_message('info', 'find result');
 		$find_result = $this->worker->find($this->input->post());
 		$this->return_data_to_client(json_encode(array('msg' => $find_result)));
 	}

@@ -79,7 +79,7 @@ class Worker extends MY_Model {
 		ImgUtils::crop_image($original_img_path, FCPATH . $thumbnail_img_path, 150, 150);
 		$this->additional_data[Constant::TABLE_WORKER_COLUMN_PHOTO_PATH] = $full_size_img_path;
 		$this->additional_data[Constant::TABLE_WORKER_COLUMN_THUMBNAIL] = $thumbnail_img_path;
-		// after handling all photo data delete original photo [i.e, photo that user uploaded]
+		// after handling all photo data, delete original photo [i.e, photo that user uploaded]
 		unlink($original_img_path);
 	}
 
@@ -92,9 +92,9 @@ class Worker extends MY_Model {
 		$this->db->limit(3, (int) $params['pagination']);
 		$this->db->select('w.id, w.name, w.photo_path, w.thumbnail_path, w.age, w.gender, w.price, w.other, c.phone, p.country_part_id, ws.font, ws.msa_app ');
 		$this->db->from('worker AS w');
-		$this->db->join('place AS p', 'w.id = p.worker_id');
-		$this->db->join('contact AS c', 'w.id = c.worker_id');
-		$this->db->join('worker_spec AS ws', 'w.id = ws.worker_id');
+		$this->db->join('place AS p', 'w.id = p.worker_id', 'LEFT');
+		$this->db->join('contact AS c', 'w.id = c.worker_id', 'LEFT');
+		$this->db->join('worker_spec AS ws', 'w.id = ws.worker_id', 'LEFT');
 		// all input post_parameters
 		$name = $params['name'];
 		$from_age = $params['from_age'];
@@ -140,16 +140,15 @@ class Worker extends MY_Model {
 		$this->db->where(['w.gender = ' => $gender]);
 		$query = $this->db->get();
 		$result = $query->result();
-		log_message('info', print_r($result, TRUE));
 		if (count($result) > 0) {
 			foreach ($result as &$value) {
 				if ($value->font == 'zawgyi') {
 					$value->name = Rabbit::uni2zg($value->name);
 				}
-				if(!is_null($value->photo_path)){
+				if (!is_null($value->photo_path)) {
 					$value->photo_path = base_url() . str_replace('\\', '/', $value->photo_path);
 				}
-				if(!is_null($value->thumbnail_path)){
+				if (!is_null($value->thumbnail_path)) {
 					$value->thumbnail_path = base_url() . str_replace('\\', '/', $value->thumbnail_path);
 				}
 			}
