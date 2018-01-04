@@ -89,7 +89,7 @@ class Worker extends MY_Model {
 	 * @param array $params search keys
 	 */
 	public function find($params) {
-		$this->db->limit(3, (int) $params['pagination']);
+		$this->db->limit(10, (int) $params['pagination']);
 		$this->db->select('w.id, w.name, w.photo_path, w.thumbnail_path, w.age, w.gender, w.price, w.other, c.phone, p.country_part_id, ws.font, ws.msa_app ');
 		$this->db->from('worker AS w');
 		$this->db->join('place AS p', 'w.id = p.worker_id', 'LEFT');
@@ -145,6 +145,7 @@ class Worker extends MY_Model {
 				if ($value->font == 'zawgyi') {
 					$value->name = Rabbit::uni2zg($value->name);
 				}
+				$value->price = number_format((float) $value->price);
 				if (!is_null($value->photo_path)) {
 					$value->photo_path = base_url() . str_replace('\\', '/', $value->photo_path);
 				}
