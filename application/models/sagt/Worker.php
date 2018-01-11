@@ -52,7 +52,7 @@ class Worker extends MY_Model {
 		if (empty($result)) {// invalid id
 			return false;
 		}
-		if ($data['msa_app'] === 'mm' && $data['font'] === 'zawgyi') {
+		if ($data['msa_app'] === 'mm' && isset($data['font']) && $data['font'] === 'zawgyi') {
 			$data['name'] = Rabbit::zg2uni($data['name']);
 		}
 		if (isset($data['photo_data'])) {

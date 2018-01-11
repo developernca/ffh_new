@@ -12,8 +12,8 @@ class Sagt extends MY_Controller {
 		// helper, library, model, db
 		parent::__construct(
 				NULL
-				, ['constant', 'keygenerator', 'imgutils', 'rabbit']
-				, ['sagt/worker', 'sagt/workerspec', 'sagt/contact', 'sagt/place']
+				, ['Constant', 'KeyGenerator', 'ImgUtils', 'Rabbit']
+				, ['sagt/worker', 'sagt/WorkerSpec', 'sagt/contact', 'sagt/place']
 				, 'sagt');
 	}
 
@@ -22,20 +22,20 @@ class Sagt extends MY_Controller {
 	 */
 	public function create_edit_worker() {
 		$post_param = $this->input->post();
+		sleep(3);
 		if (isset($post_param['id'])) {// edit account
 			$id_to_edit = $post_param['id'];
 			unset($post_param['id']);
 			$could_edit_worker = $this->worker->edit($post_param, $id_to_edit);
 			if (!$could_edit_worker) {
-				$this->return_data_to_client(json_encode(['flag' => self::ERR_FLG, 'data' => NULL]));
+				$this->return_data_to_client(json_encode(['flag' => self::ERR_FLG, 'data' => 'W404']));
 			}
 			if (isset($post_param['photo_data'])) {
 				unset($post_param['photo_data']);
 			}
-			$could_edit_workerspec = $this->workerspec->edit($post_param, $id_to_edit);
+			$could_edit_workerspec = $this->WorkerSpec->edit($post_param, $id_to_edit);
 			$could_edit_place = $this->place->edit($post_param, $id_to_edit);
 			$could_edit_contact = $this->contact->edit($post_param, $id_to_edit);
-			log_message('info', $could_edit_workerspec . '=>' . $could_edit_place . '=>' . $could_edit_contact);
 			if ($could_edit_workerspec && $could_edit_place && $could_edit_contact) {
 				$this->return_data_to_client(json_encode(['flag' => self::OK_FLG, 'data' => NULL]));
 			} else {
@@ -49,7 +49,7 @@ class Sagt extends MY_Controller {
 			if (isset($post_param['photo_data'])) {
 				unset($post_param['photo_data']);
 			}
-			$worker_spec_id = $this->workerspec->create($post_param, $worker_id);
+			$worker_spec_id = $this->WorkerSpec->create($post_param, $worker_id);
 			$place_id = $this->place->create($post_param, $worker_id);
 			$contact_id = $this->contact->create($post_param, $worker_id);
 			if (!is_null($worker_spec_id) && !is_null($place_id) && !is_null($contact_id)) {
