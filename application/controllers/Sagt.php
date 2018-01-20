@@ -21,14 +21,17 @@ class Sagt extends MY_Controller {
 	 * Create worker account.
 	 */
 	public function create_edit_worker() {
+		if (!$this->is_post()) {
+			return;
+		}
 		$post_param = $this->input->post();
-		sleep(3);
 		if (isset($post_param['id'])) {// edit account
 			$id_to_edit = $post_param['id'];
 			unset($post_param['id']);
 			$could_edit_worker = $this->worker->edit($post_param, $id_to_edit);
 			if (!$could_edit_worker) {
 				$this->return_data_to_client(json_encode(['flag' => self::ERR_FLG, 'data' => 'W404']));
+				return;
 			}
 			if (isset($post_param['photo_data'])) {
 				unset($post_param['photo_data']);
@@ -45,6 +48,7 @@ class Sagt extends MY_Controller {
 			$worker_id = $this->worker->create($post_param);
 			if (is_null($worker_id)) {
 				$this->return_data_to_client(json_encode(['flag' => self::ERR_FLG, 'data' => NULL]));
+				return;
 			}
 			if (isset($post_param['photo_data'])) {
 				unset($post_param['photo_data']);
@@ -64,6 +68,9 @@ class Sagt extends MY_Controller {
 	 * Find worker.
 	 */
 	public function find_worker() {
+		if (!$this->is_post()) {
+			return;
+		}
 		$find_result = $this->worker->find($this->input->post());
 		$this->return_data_to_client(json_encode(array('msg' => $find_result)));
 	}

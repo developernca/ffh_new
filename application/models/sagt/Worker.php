@@ -24,7 +24,11 @@ class Worker extends MY_Model {
 		$this->additional_data[Constant::TABLE_WORKER_COLUMN_PASSWORD] = $password;
 		// create direcotry for user whether photo_data exist or not, so there is no need
 		// to [call mkdir]create/make folder in edit action.
-		mkdir(FCPATH . Constant::ROOT_SAGT . self::$slash . $id);
+		$root_path = FCPATH . Constant::ROOT_SAGT . self::$slash;
+		if (!file_exists($root_path)) {
+			mkdir($root_path);
+		}
+		mkdir($root_path . self::$slash . $id);
 		if ($data['msa_app'] === 'mm' && $data['font'] === 'zawgyi') {
 			$data['name'] = Rabbit::zg2uni($data['name']);
 		}
@@ -48,7 +52,8 @@ class Worker extends MY_Model {
 	 * @return boolean true on success, false on failure
 	 */
 	public function edit($data, $id) {
-		$result = $this->db->get_where(Constant::TABLE_WORKER, array(Constant::TABLE_WORKER_COLUMN_ID => $id));
+		$query = $this->db->get_where(Constant::TABLE_WORKER, array(Constant::TABLE_WORKER_COLUMN_ID => $id));
+		$result = $query->result();
 		if (empty($result)) {// invalid id
 			return false;
 		}

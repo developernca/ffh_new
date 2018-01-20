@@ -88,4 +88,15 @@ class MY_Controller extends CI_Controller {
 		$mail_sent = mail($to, Constant::ACTIVATION_MAIL_SUBJECT, $message, Constant::MAIL_HEADER, Constant::MAIL_SENDER);
 	}
 
+	/**
+	 * Check whether client request is post or not.
+	 * This method use only UPPER CASE.
+	 * 
+	 * @return boolean return true request is POST, otherwise false
+	 */
+	protected function is_post() {
+		$http_method = $this->input->method(TRUE);
+		return $http_method === 'POST';
+	}
+
 }
